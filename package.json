@@ -1,0 +1,16 @@
+{
+    "name": "typescript-cache-test",
+    "packageManager": "yarn@4.9.2",
+    "type": "module",
+    "workspaces": [
+        "packages/*"
+    ],
+    "scripts": {
+        "test-deletion": "node test-deletion.js"
+    },
+    "devDependencies": {
+        "@types/node": "^24.0.3",
+        "picocolors": "^1.1.1",
+        "typescript": "^5.8.3"
+    }
+}

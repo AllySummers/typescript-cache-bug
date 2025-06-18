@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "target": "ES2022",
+        "module": "ESNext",
+        "moduleResolution": "bundler",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "outDir": "../../tsDist/app",
+        "rootDir": "./src",
+        "composite": true,
+        "declaration": true,
+        "declarationMap": true,
+        "incremental": true,
+        "tsBuildInfoFile": "../../tsDist/app/tsconfig.tsbuildinfo"
+    },
+    "extends": "../../tsconfig.json",
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "dist"],
+    "references": [{ "path": "../shared/tsconfig.json" }]
+}

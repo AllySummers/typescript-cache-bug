@@ -1,0 +1,13 @@
+{
+    "name": "@test/app",
+    "version": "1.0.0",
+    "type": "module",
+    "main": "./src/index.ts",
+    "scripts": {
+        "build": "tsc --build",
+        "clean": "tsc --build --clean"
+    },
+    "dependencies": {
+        "@test/shared": "workspace:*"
+    }
+}

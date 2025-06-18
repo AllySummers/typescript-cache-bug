@@ -1,0 +1,12 @@
+{
+    "name": "@test/shared",
+    "version": "1.0.0",
+    "type": "module",
+    "scripts": {
+        "build": "tsc --build",
+        "clean": "tsc --build --clean"
+    },
+    "exports": {
+        "./*": "./src/*.ts"
+    }
+}
