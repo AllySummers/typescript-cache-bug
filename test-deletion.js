@@ -4,14 +4,12 @@
 
 import { existsSync } from 'node:fs';
 import { join, relative } from 'node:path';
-import { exec as execCb } from 'node:child_process';
-import { promisify } from 'node:util';
 import { rm, writeFile } from 'node:fs/promises';
+import { $ } from 'zx';
 import pc from 'picocolors';
 
-const buildCmd = 'tsc --build tsconfig.json --emitDeclarationOnly';
+$.verbose = true;
 
-const exec = promisify(execCb);
 const tsDistDir = join(import.meta.dirname, 'tsDist');
 const fileToDelete = join(import.meta.dirname, 'packages', 'shared', 'src', 'product.ts');
 
@@ -44,8 +42,8 @@ if (existsSync(tsDistDir)) {
 }
 
 try {
-    console.log(`\n${pc.bold('$')} ${pc.green(buildCmd)} ${pc.gray('# First build')}`);
-    await exec(buildCmd);
+    console.log(pc.dim(pc.bold('===== First build =====')));
+    await $`tsc --build tsconfig.json --emitDeclarationOnly --verbose --pretty # First build`;
 
     console.log('✅ First build succeeded.');
 } catch (error) {
@@ -58,8 +56,8 @@ console.log(`Deleting ${relative(import.meta.dirname, fileToDelete)} file...\n`)
 await rm(fileToDelete);
 
 try {
-    console.log(`${pc.bold('$')} ${pc.green(buildCmd)} ${pc.gray('# Second build')}`);
-    await exec(buildCmd);
+    console.log(pc.dim(pc.bold('===== Second build =====')));
+    await $`tsc --build tsconfig.json --emitDeclarationOnly --verbose --pretty # Second build`;
     console.log('❌ Second build succeeded, but it should have failed because the file was deleted.');
 } catch {
     console.log('✅ Second build failed, as it should have, because the file was deleted.');
@@ -70,8 +68,9 @@ console.log('tsDist/shared directory removed successfully.\n');
 
 console.log('Manually deleted cache for `shared` package...');
 try {
-    console.log(`${pc.bold('$')} ${pc.green(buildCmd)} ${pc.gray('# Third build')}`);
-    await exec(buildCmd);
+    console.log(pc.dim(pc.bold('===== Third build =====')));
+    await $`tsc --build tsconfig.json --emitDeclarationOnly --verbose --pretty # Third build`;
+
     console.log(
         '❌ Third build succeeded, but it should have failed because the cache for the `shared` package was deleted.'
     );

@@ -42,6 +42,7 @@ __metadata:
     "@types/node": "npm:^24.0.3"
     picocolors: "npm:^1.1.1"
     typescript: "npm:^5.8.3"
+    zx: "npm:^8.5.5"
   languageName: unknown
   linkType: soft
 
@@ -69,5 +70,14 @@ __metadata:
   version: 7.8.0
   resolution: "undici-types@npm:7.8.0::__archiveUrl=https%3A%2F%2Fpackages.atlassian.com%2Fapi%2Fnpm%2Fnpm-remote%2Fundici-types%2F-%2Fundici-types-7.8.0.tgz"
   checksum: 10c0/9d9d246d1dc32f318d46116efe3cfca5a72d4f16828febc1918d94e58f6ffcf39c158aa28bf5b4fc52f410446bc7858f35151367bd7a49f21746cab6497b709b
+  languageName: node
+  linkType: hard
+
+"zx@npm:^8.5.5":
+  version: 8.5.5
+  resolution: "zx@npm:8.5.5::__archiveUrl=https%3A%2F%2Fpackages.atlassian.com%2Fapi%2Fnpm%2Fnpm-remote%2Fzx%2F-%2Fzx-8.5.5.tgz"
+  bin:
+    zx: build/cli.js
+  checksum: 10c0/9c69e5a75b49b796211812625564980d0a86079a11011b397c4c77d256e3fe0a76b5ec7134db4d598e156f84e07981d8692544715feb8ff77adfae60faa356fc
   languageName: node
   linkType: hard
